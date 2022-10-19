@@ -1,0 +1,53 @@
+version: '2'
+services:
+  silkdockerWEB:
+    build: .
+    image: 'smartinfologiks/php7.0:latest'
+    ports:
+      - '8000:80'
+      - '4431:443'
+    command: /usr/sbin/apachectl -D FOREGROUND
+    tty: true
+    volumes:
+      - './webData:/var/www/html'
+    restart: unless-stopped
+    links:
+      - silkdockerMYSQL
+      - silkdockerMemcached
+    depends_on:
+      - silkdockerMYSQL
+      - silkdockerMemcached
+    networks:
+      static-network-silkdocker:
+        ipv4_address: 173.18.20.22
+  silkdockerMYSQL:
+    image: 'mysql:8.0.23'
+    #command: mysqld
+    command: [mysqld, --default-authentication-plugin=mysql_native_password, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb_monitor_enable=all, --max-connections=1001]
+    tty: true
+    ports:
+      - '3306:3306'
+    volumes:
+      - './dataMySQL:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: my@2019SQL
+    restart: unless-stopped
+    networks:
+      static-network-silkdocker:
+        ipv4_address: 173.18.20.24
+  silkdockerMemcached:
+    image: memcached
+    command:
+      - memcached
+    ports:
+      - '11211:11211'
+    restart: unless-stopped
+    networks:
+      static-network-silkdocker:
+        ipv4_address: 173.18.20.28
+networks:
+  static-network-silkdocker:
+    ipam:
+      config:
+        - subnet: 173.18.20.0/16
+          ip_range: 173.18.20.0/24

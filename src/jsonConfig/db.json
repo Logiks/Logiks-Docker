@@ -1,0 +1,47 @@
+{
+	"GLOBALS": {
+		"core": {
+			"driver": "mysqli",
+			"host": "173.18.20.24",
+			"port": "3306",
+			"database": "logiks4_coredb",
+			"user": "root",
+			"pwd": "my@2019SQL",
+			"prefix": "lgks",
+			"suffix": "",
+			"readonly": false,
+			"block": [],
+			"allowSQL": true
+		},
+		"log": {
+			"driver": "mysqli",
+            "host": "173.18.20.24",
+			"port": "3306",
+            "database": "logiks4_logdb",
+            "user": "root",
+			"pwd": "my@2019SQL",
+            "prefix": "log",
+            "suffix": "",
+            "readonly": false,
+            "block": [],
+            "allowSQL": true
+		},
+		"security": {
+		}
+	},
+	"home":{
+		"app":{
+			"driver": "mysqli",
+			"host": "173.18.20.24",
+			"port": "3306",
+			"database": "logiks4_app1",
+			"user": "root",
+			"pwd": "my@2019SQL",
+			"prefix": "do",
+			"suffix": "",
+			"readonly": false,
+			"block": [],
+			"allowSQL": true
+		}
+	}
+}

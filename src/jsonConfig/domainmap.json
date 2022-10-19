@@ -1,0 +1,18 @@
+{
+    "GLOBALS": {
+        "localhost": {
+            "appsite": "home",
+            "node": "",
+            "active": true,
+            "doc": "2015-04-30",
+            "doe": "2015-04-30"
+        },
+        "localhost:8000": {
+            "appsite": "home",
+            "node": "",
+            "active": true,
+            "doc": "2015-04-30",
+            "doe": "2015-04-30"
+        }
+    }
+}
