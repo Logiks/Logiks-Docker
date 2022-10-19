@@ -27,7 +27,9 @@ This can be directly used in any docker environment.
 
 
 HOST_MYSQL= 173.18.20.24
+
 HOST_MONGO= mongodb://173.18.20.26:27017/test1
+
 HOST_MEMCACHED= 173.18.20.28
 
 PORT_MEMCACHED = 11211
